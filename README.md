@@ -41,13 +41,13 @@ Examples
 >>> 
 >>> g = geopandas.GeoSeries([p1, p2, p3])
 >>> 
->>> g
 >>> 
-0         POLYGON ((0 0, 1 0, 1 1, 0 0))
+>>> 
+>>> POLYGON ((0 0, 1 0, 1 1, 0 0))
 
-1    POLYGON ((0 0, 1 0, 1 1, 0 1, 0 0))
+>>> POLYGON ((0 0, 1 0, 1 1, 0 1, 0 0))
 
-2    POLYGON ((2 0, 3 0, 3 1, 2 1, 2 0))
+>>>   POLYGON ((2 0, 3 0, 3 1, 2 1, 2 0))
 
-dtype: geometry
+>>> dtype: geometry
 
