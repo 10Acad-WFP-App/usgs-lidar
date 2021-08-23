@@ -55,31 +55,53 @@ Examples
 
 Some geographic operations return normal pandas object. The area property of a GeoSeries will return a pandas.Series containing the area of each item in the GeoSeries:
 
+
 >>> print(g.area)
+>>> 
 0    0.5
+
 1    1.0
+
 2    1.0
+
 dtype: float64
+
 Other operations return GeoPandas objects:
 
+
 >>> g.buffer(0.5)
+>>> 
 0    POLYGON ((-0.3535533905932737 0.35355339059327...
+
 1    POLYGON ((-0.5 0, -0.5 1, -0.4975923633360985 ...
+
 2    POLYGON ((1.5 0, 1.5 1, 1.502407636663901 1.04...
+
 dtype: geometry
+
 
 ![image](https://user-images.githubusercontent.com/62420356/130499782-406198bf-5ee6-457d-8d32-55ef8ab0abe8.png)
 
+
 GeoPandas objects also know how to plot themselves. GeoPandas uses matplotlib for plotting. To generate a plot of our GeoSeries, use:
 
+
 >>> g.plot()
+>>> 
+
 GeoPandas also implements alternate constructors that can read any data format recognized by fiona. To read a zip file containing an ESRI shapefile with the boroughs boundaries of New York City (GeoPandas includes this as an example dataset):
 
+
 >>> nybb_path = geopandas.datasets.get_path('nybb')
+>>> 
 >>> boros = geopandas.read_file(nybb_path)
+>>> 
 >>> boros.set_index('BoroCode', inplace=True)
+>>> 
 >>> boros.sort_index(inplace=True)
+>>> 
 >>> boros
+>>> 
                BoroName     Shape_Leng    Shape_Area  \
 BoroCode
 1             Manhattan  359299.096471  6.364715e+08
