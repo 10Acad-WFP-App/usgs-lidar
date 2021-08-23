@@ -28,14 +28,26 @@ Report bugs, suggest features or view the source code on GitHub.
 For a quick question about a bug report or feature request, or Pull Request, head over to the gitter channel.
 For less well defined questions or ideas, or to announce other projects of interest to GeoPandas users, ... use the mailing list.
 Examples
+
 >>> import geopandas
+>>> 
 >>> from shapely.geometry import Polygon
+>>> 
 >>> p1 = Polygon([(0, 0), (1, 0), (1, 1)])
+>>> 
 >>> p2 = Polygon([(0, 0), (1, 0), (1, 1), (0, 1)])
+>>> 
 >>> p3 = Polygon([(2, 0), (3, 0), (3, 1), (2, 1)])
+>>> 
 >>> g = geopandas.GeoSeries([p1, p2, p3])
+>>> 
 >>> g
+>>> 
 0         POLYGON ((0 0, 1 0, 1 1, 0 0))
+
 1    POLYGON ((0 0, 1 0, 1 1, 0 1, 0 0))
+
 2    POLYGON ((2 0, 3 0, 3 1, 2 1, 2 0))
+
 dtype: geometry
+
