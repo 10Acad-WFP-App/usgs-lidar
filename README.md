@@ -99,24 +99,41 @@ GeoPandas also implements alternate constructors that can read any data format r
 >>> boros.set_index('BoroCode', inplace=True)
 >>> 
 >>> boros.sort_index(inplace=True)
->>> 
+
+
 >>> boros
 >>> 
+
+
                BoroName     Shape_Leng    Shape_Area  \
+               
 BoroCode
+
 1             Manhattan  359299.096471  6.364715e+08
+
 2                 Bronx  464392.991824  1.186925e+09
+
 3              Brooklyn  741080.523166  1.937479e+09
+
 4                Queens  896344.047763  3.045213e+09
+
 5         Staten Island  330470.010332  1.623820e+09
 
+
                                                    geometry
+                                                   
 BoroCode
+
 1         MULTIPOLYGON (((981219.0557861328 188655.31579...
+
 2         MULTIPOLYGON (((1012821.805786133 229228.26458...
+
 3         MULTIPOLYGON (((1021176.479003906 151374.79699...
+
 4         MULTIPOLYGON (((1029606.076599121 156073.81420...
+
 5         MULTIPOLYGON (((970217.0223999023 145643.33221..
+
 
 ![image](https://user-images.githubusercontent.com/62420356/130499949-71f04ff1-0bc2-4a0f-a68c-c6e00c4612e8.png)
 
