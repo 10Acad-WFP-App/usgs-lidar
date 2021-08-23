@@ -1,39 +1,73 @@
-#!/usr/bin/env python
+#!/usr/bin/env/python
+"""Installation script
 
-"""The setup script."""
+"""
 
-from setuptools import setup, find_packages
+import os
 
-with open('README.md') as readme_file:
-    readme = readme_file.read()
+try:
+    from setuptools import setup
+except ImportError:
+    from distutils.core import setup
 
-requirements = ['pandas>=1.1.0', 'numpy>=1.19.0', ]
+import versioneer
 
-test_requirements = ['pytest>=3', ]
+LONG_DESCRIPTION = """GeoPandas is a project to add support for geographic data to
+`pandas`_ objects.
+
+The goal of GeoPandas is to make working with geospatial data in
+python easier. It combines the capabilities of `pandas`_ and `shapely`_,
+providing geospatial operations in pandas and a high-level interface
+to multiple geometries to shapely. GeoPandas enables you to easily do
+operations in python that would otherwise require a spatial database
+such as PostGIS.
+
+.. _pandas: http://pandas.pydata.org
+.. _shapely: http://shapely.readthedocs.io/en/latest/
+"""
+
+if os.environ.get("READTHEDOCS", False) == "True":
+    INSTALL_REQUIRES = []
+else:
+    INSTALL_REQUIRES = [
+        "pandas >= 0.25.0",
+        "shapely >= 1.6",
+        "fiona >= 1.8",
+        "pyproj >= 2.2.0",
+    ]
+
+# get all data dirs in the datasets module
+data_files = []
+
+for item in os.listdir("geopandas/datasets"):
+    if not item.startswith("__"):
+        if os.path.isdir(os.path.join("geopandas/datasets/", item)):
+            data_files.append(os.path.join("datasets", item, "*"))
+        elif item.endswith(".zip"):
+            data_files.append(os.path.join("datasets", item))
+
+data_files.append("tests/data/*")
+
 
 setup(
-    author="10 Academy",
-    email="train@10academy.org",
-    python_requires='>=3.6',
-    classifiers=[
-        'Development Status :: 2 - Pre-Alpha',
-        'Intended Audience :: Developers',
-        'Natural Language :: English',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.6',
-        'Programming Language :: Python :: 3.7',
-        'Programming Language :: Python :: 3.8',
+    name="geopandas",
+    version=versioneer.get_version(),
+    description="Geographic pandas extensions",
+    license="BSD",
+    author="GeoPandas contributors",
+    author_email="kjordahl@alum.mit.edu",
+    url="http://geopandas.org",
+    long_description=LONG_DESCRIPTION,
+    packages=[
+        "geopandas",
+        "geopandas.io",
+        "geopandas.tools",
+        "geopandas.datasets",
+        "geopandas.tests",
+        "geopandas.tools.tests",
     ],
-    description="A Repository structure for all your project",
-    install_requires=requirements,
-    long_description=readme,
-    include_package_data=True,
-    keywords='scripts',
-    name='scripts',
-    packages=find_packages(include=['scripts', 'scripts.*']),
-    test_suite='tests',
-    tests_require=test_requirements,
-    url='https://github.com/10xac/PythonPackageStructure',
-    version='0.1.0',
-    zip_safe=False,
+    package_data={"geopandas": data_files},
+    python_requires=">=3.7",
+    install_requires=INSTALL_REQUIRES,
+    cmdclass=versioneer.get_cmdclass(),
 )
