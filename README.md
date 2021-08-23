@@ -51,3 +51,4 @@ Examples
 
 >>> dtype: geometry
 
+![image](https://user-images.githubusercontent.com/62420356/130499069-bd44081b-7329-438c-83d9-93329152c5ee.png)
