@@ -100,11 +100,17 @@ BoroCode
 
 >>> boros['geometry'].convex_hull
 BoroCode
+
 1    POLYGON ((977855.4451904297 188082.3223876953,...
+
 2    POLYGON ((1017949.977600098 225426.8845825195,...
+
 3    POLYGON ((988872.8212280273 146772.0317993164,...
+
 4    POLYGON ((1000721.531799316 136681.776184082, ...
+
 5    POLYGON ((915517.6877458114 120121.8812543372,...
+
 dtype: geometry
 
 ![image](https://user-images.githubusercontent.com/62420356/130500212-e00e2517-7aa4-438b-bd64-cbf8071cc7b5.png)
